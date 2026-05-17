@@ -23,6 +23,11 @@ This module demonstrates the step-by-step evolution of handling user click event
 * **Core Concept:** Extracting and injecting layout text versus operational HTML markup.
 * **Key Learning:** Mastered the CSS awareness distinction between `innerText` and `textContent`, and analyzed the Cross-Site Scripting (XSS) vulnerability risks of using `innerHTML`.
 
+### [6. Dynamic Styling via Class Lists](./index6-classes.html)
+* **Core Concept:** Managing visual states through structural CSS classes instead of inline adjustments.
+* **Key Learning:** Mastered the `classList` API methods (`add`, `remove`, `toggle`) and used `.contains()` for precise programmatic state verification.
+
+
 
 
 
