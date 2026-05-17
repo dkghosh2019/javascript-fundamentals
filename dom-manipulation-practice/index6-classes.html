@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Base card structure */
+  .alert-box {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    transition: all 0.3s linear;
+  }
+
+  /* Structural state classes to be managed by JavaScript */
+  .danger-state {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+  }
+
+  .highlight-border {
+    border: 3px dashed #0056b3;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 
+    LEARNING NOTE: The classList API
+    
+    1. element.classList:
+       - Returns a live collection (DOMTokenList) of the class attributes on the element.
+       
+    2. .add('classname'):
+       - Safely adds a class if it does not already exist. It does not overwrite existing classes.
+       
+    3. .remove('classname'):
+       - Removes a specific class from the element without disturbing other classes.
+       
+    4. .toggle('classname'):
+       - The ultimate state-switcher. Adds the class if it is missing; removes it if it is present.
+       
+    5. .contains('classname'):
+       - Returns a boolean (true/false). Excellent for conditional logic and state checking.
+  -->
+
+  <h2>Topic Mastery: State Management with classList</h2>
+
+  <div id="alert" class="alert-box">
+    System Alert Message Box
+  </div>
+
+  <hr>
+
+  <button type="button" onclick="addClass()">1. Add Danger State (.add)</button>
+  <button type="button" onclick="removeClass()">2. Remove Danger State (.remove)</button>
+  <button type="button" onclick="toggleBorder()">3. Toggle Border (.toggle)</button>
+  <button type="button" onclick="checkStatus()">4. Check Border Status (.contains)</button>
+
+  <p><strong>Status Output:</strong> <span id="status-log">No check performed yet.</span></p>
+
+  <script>
+  const alertBox = document.getElementById('alert');
+  const statusLog = document.getElementById('status-log');
+
+  function addClass() {
+    // Injecting a class cleanly without wiping out the base '.alert-box' layout rules
+    alertBox.classList.add('danger-state');
+  }
+
+  function removeClass() {
+    // Gracefully removing the target class while keeping all other classes intact
+    alertBox.classList.remove('danger-state');
+  }
+
+  function toggleBorder() {
+    // Automatically adds or removes the border utility based on current presence
+    alertBox.classList.toggle('highlight-border');
+  }
+
+  function checkStatus() {
+    // Reading the active element state via a boolean check
+    const hasBorder = alertBox.classList.contains('highlight-border');
+    
+    if (hasBorder) {
+      statusLog.textContent = "The element currently HAS the highlight-border class!";
+    } else {
+      statusLog.textContent = "The element does NOT have the highlight-border class.";
+    }
+  }
+  </script>
+
+</body>
+</html>
