@@ -19,5 +19,10 @@ This module demonstrates the step-by-step evolution of handling user click event
 * **Core Concept:** Finding element nodes using specific unique IDs versus flexible CSS selector queries.
 * **Key Learning:** Differentiated between `getElementById` (single element), `querySelector` (first match using CSS syntax), and `querySelectorAll` (NodeList collection target).
 
+### [5. Text & Content Injection](./index5-text-content.html)
+* **Core Concept:** Extracting and injecting layout text versus operational HTML markup.
+* **Key Learning:** Mastered the CSS awareness distinction between `innerText` and `textContent`, and analyzed the Cross-Site Scripting (XSS) vulnerability risks of using `innerHTML`.
+
+
 
 
