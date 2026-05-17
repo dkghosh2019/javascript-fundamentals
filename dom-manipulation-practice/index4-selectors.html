@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <!-- 
+    LEARNING NOTE: DOM Selection Methods
+    
+    1. document.getElementById('id_string'):
+       - Fast and highly efficient.
+       - Returns a SINGLE unique element node (or null if not found).
+       - Argument must be a raw string name. Do NOT include a CSS hash symbol (#).
+       
+    2. document.querySelector('css_selector'):
+       - Highly flexible. Uses standard CSS syntax ('.class', '#id', 'div > p').
+       - Returns ONLY the first matching element node it finds on the entire page.
+       
+    3. document.querySelectorAll('css_selector'):
+       - Uses flexible CSS selector syntax.
+       - Returns a static NodeList collection containing ALL matching elements.
+       - Cannot be styled directly as a group. You must target items by index [0] 
+         or iterate through them using a loop (like .forEach()).
+  -->
+
+  <h2>Topic Mastery: DOM Selection Methods</h2>
+
+  <div id="unique-box">Target Me by ID</div>
+  
+  <p class="sample-text">First Paragraph Element (Class: sample-text)</p>
+  <p class="sample-text">Second Paragraph Element (Class: sample-text)</p>
+
+  <hr>
+  <button type="button" onclick="testSelectors()">Execute Selectors</button>
+
+  <script>
+  function testSelectors() {
+    // 1. Target a single element using getElementById
+    // Note: Passed string is just the ID name without a hash (#)
+    const boxById = document.getElementById('unique-box');
+    boxById.style.backgroundColor = 'lightyellow';
+    boxById.style.padding = '10px';
+
+    // 2. Target only the FIRST matching element using querySelector
+    // Note: Must include the dot (.) because it uses standard CSS syntax
+    const firstParagraph = document.querySelector('.sample-text');
+    firstParagraph.style.color = 'blue';
+    firstParagraph.style.fontWeight = 'bold';
+
+    // 3. Target ALL matching elements using querySelectorAll
+    const allParagraphs = document.querySelectorAll('.sample-text');
+    
+    // To demonstrate it returns a collection, let's use an array index 
+    // bracket to specifically modify only the second item in the list
+    if (allParagraphs.length > 1) {
+      const secondParagraph = allParagraphs[1]; // Index 0 is the first, index 1 is the second
+      secondParagraph.style.color = 'purple';
+      secondParagraph.style.fontStyle = 'italic';
+    }
+  }
+  </script>
+
+</body>
+</html>
