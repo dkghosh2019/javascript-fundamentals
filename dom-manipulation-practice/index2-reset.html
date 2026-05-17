@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  #demo {
+    /* Maintained the uniform animation speed */
+    transition: font-size 0.5s linear, color 0.5s linear;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 
+    LEARNING NOTE: What this code demonstrates
+    
+    1. State Management Basics: 
+       Introducing a separate control mechanism (the Reset button) allows us 
+       to programmatically revert element presentation states.
+       
+    2. Clearing Inline Styles: 
+       Setting a style property to an empty string ('') removes the inline 
+       style attribute declaration entirely.
+       
+    3. CSS Fallback Cascade: 
+       Once the inline style is removed, the browser automatically cascades 
+       back to its default stylesheet rules, smoothly scaling down using our transition.
+  -->
+
+  <h2>Demo: State Modification and Inline Style Cleanup</h2>
+
+  <p id="demo">JavaScript can change the style of an HTML element.</p>
+
+  <button type="button" onclick="changeStyle()">Click Me!</button>
+  <button type="button" onclick="resetStyle()">Reset</button>
+
+  <script>
+  // Declaring the element globally inside the script block prevents duplicate DOM queries
+  const demoElement = document.getElementById('demo');
+
+  function changeStyle() {
+    demoElement.style.fontSize = '34px';
+    demoElement.style.color = 'red';
+  }
+
+  function resetStyle() {
+    // An empty string completely deletes the inline rule
+    demoElement.style.fontSize = '';
+    demoElement.style.color = '';
+  }
+  </script>
+
+</body>
+</html>

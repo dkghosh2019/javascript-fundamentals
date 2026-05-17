@@ -7,3 +7,8 @@ This module demonstrates the step-by-step evolution of handling user click event
 ### [1. Smooth CSS Transitions](./index1-animation.html)
 * **Core Concept:** Moving inline JavaScript into a function and applying `transition` properties.
 * **Key Learning:** Learned how `linear` timing ensures uniform animation speed compared to `ease`.
+
+### [2. Reset Functionality](./index2-reset.html)
+* **Core Concept:** Managing element states by adding a secondary control action.
+* **Key Learning:** Clearing inline styles by assigning an empty string (`''`), forcing the element to efficiently inherit default CSS stylesheet rules.
+
