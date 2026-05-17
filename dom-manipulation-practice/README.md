@@ -27,6 +27,15 @@ This module demonstrates the step-by-step evolution of handling user click event
 * **Core Concept:** Managing visual states through structural CSS classes instead of inline adjustments.
 * **Key Learning:** Mastered the `classList` API methods (`add`, `remove`, `toggle`) and used `.contains()` for precise programmatic state verification.
 
+### [7. Element Creation & Appending](./index7-creation.html)
+* **Core Concept:** Creating dynamic nodes from scratch within memory allocation and appending them to structural containers.
+* **Key Learning:** Mastered the precise separation between virtual allocation (`document.createElement`) and physical mounting operations (`appendChild`).
+
+
+
+
+
+
 
 
 

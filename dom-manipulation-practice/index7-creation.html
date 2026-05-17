@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .list-wrapper {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px dashed #777;
+    max-width: 300px;
+  }
+  .dynamic-item {
+    padding: 6px;
+    margin: 4px 0;
+    background-color: #e3f2fd;
+    border-left: 4px solid #2196f3;
+    font-family: sans-serif;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 
+    LEARNING NOTE: Dynamic Element Creation & Injection
+    
+    1. document.createElement('tagName'):
+       - Spawns a brand new, isolated element node completely in system memory.
+       - The element is NOT yet visible on the webpage because it has not been attached 
+         to the active document tree.
+       
+    2. Node Configuration:
+       - Once the node exists in memory, you can safely modify its attributes, add text 
+         via '.textContent', or attach layout styling classes via '.classList.add()'.
+       
+    3. parentElement.appendChild(newChildNode):
+       - Explicitly targets a parent destination node already present in the active DOM.
+       - Appends the memory-bound child node as the VERY LAST child inside that parent element, 
+         making it instantly visible to the user.
+  -->
+
+  <h2>Topic Mastery: Dynamic Node Generation & Mounting</h2>
+
+  <button type="button" onclick="generateNode()">Generate & Append New Node</button>
+
+  <h3>Active DOM Destination Wrapper:</h3>
+  <!-- This wrapper is our insertion target point -->
+  <div id="wrapper" class="list-wrapper">
+    <p id="empty-msg">No dynamic nodes mounted yet.</p>
+  </div>
+
+  <script>
+  let nodeCount = 0;
+
+  function generateNode() {
+    const wrapper = document.getElementById('wrapper');
+    const emptyMsg = document.getElementById('empty-msg');
+
+    // Remove the placeholder message if it still exists on first click
+    if (emptyMsg) {
+      emptyMsg.remove();
+    }
+
+    nodeCount++;
+
+    // 1. CREATE: Spawn a fresh list item component node in system memory
+    const newListItem = document.createElement('div');
+
+    // 2. CONFIGURE: Safely apply styling and update text while it is still in memory
+    newListItem.classList.add('dynamic-item');
+    newListItem.textContent = `Dynamic Element Node #${nodeCount}`;
+
+    // 3. MOUNT: Inject the configured element node directly into the live webpage
+    // This inserts the node at the absolute bottom of the wrapper box
+    wrapper.appendChild(newListItem);
+  }
+  </script>
+
+</body>
+</html>
