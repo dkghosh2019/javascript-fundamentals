@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  #demo {
+    /* Linear transition ensures uniform animation speed */
+    transition: font-size 0.5s linear, color 0.5s linear;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 
+    LEARNING NOTE: What this code demonstrates
+    
+    1. DOM Style Mutation: 
+       JavaScript actively interacts with the Document Object Model (DOM) 
+       to alter an element's inline properties dynamically on the fly.
+       
+    2. CSS Linear Transition: 
+       Uses native CSS to interpolate style changes at a perfectly constant, 
+       uniform velocity. This prevents instant snapping and avoids using heavy, 
+       resource-intensive JavaScript animation libraries.
+  -->
+
+  <h2>Demo: JavaScript DOM Style Mutation with CSS Linear Transition</h2>
+
+  <p id="demo">JavaScript can change the style of an HTML element.</p>
+
+  <button type="button" onclick="changeStyle()">Click Me!</button>
+
+  <script>
+  function changeStyle() {
+    const demoElement = document.getElementById('demo');
+    demoElement.style.fontSize = '34px';
+    demoElement.style.color = 'red';
+  }
+  </script>
+
+</body>
+</html>
