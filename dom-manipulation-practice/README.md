@@ -15,5 +15,9 @@ This module demonstrates the step-by-step evolution of handling user click event
 ### [3. Targeting Multiple Elements](./index3-multiple.html)
 * **Core Concept:** Transitioning from specific target IDs to shared component classes.
 * **Key Learning:** Utilizing `document.querySelectorAll()` to gather a NodeList collection, and applying style changes sequentially via a `.forEach()` loop.
+### [4. DOM Selectors](./index4-selectors.html)
+* **Core Concept:** Finding element nodes using specific unique IDs versus flexible CSS selector queries.
+* **Key Learning:** Differentiated between `getElementById` (single element), `querySelector` (first match using CSS syntax), and `querySelectorAll` (NodeList collection target).
+
 
 
