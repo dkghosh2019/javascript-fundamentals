@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Target the class instead of an ID using the dot (.) operator */
+  .demo {
+    /* Maintained your requested uniform linear animation speed */
+    transition: font-size 0.5s linear, color 0.5s linear;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 
+    LEARNING NOTE: What this code demonstrates
+    
+    1. Scaling Architecture (IDs vs. Classes): 
+       IDs must be unique to a single element. To control multiple elements 
+       with a single click, we shift to a shared CSS structural class ('demo').
+       
+    2. Document Collection Queries: 
+       'document.querySelectorAll('.demo')' searches the DOM and returns a 
+       stagnant NodeList collection containing all elements matching the class selector.
+       
+    3. Iteration over DOM Nodes: 
+       JavaScript cannot modify the styles of a NodeList collection directly. 
+       We utilize the '.forEach()' loop method to extract each individual element 
+       node sequentially and execute style assignments one by one.
+  -->
+
+  <h2>Demo: Batch Element Manipulation Using QuerySelectorAll and ForEach Loops</h2>
+
+  <p class="demo">JavaScript can change the style of an HTML element.</p>
+  <p class="demo">This is a second element changing at the exact same time.</p>
+  <p class="demo">And a third element controlled by the exact same buttons!</p>
+
+  <button type="button" onclick="changeStyle()">Click Me!</button>
+  <button type="button" onclick="resetStyle()">Reset</button>
+
+  <script>
+  // Captures all matching element nodes into an iterable list collection
+  const demoElements = document.querySelectorAll('.demo');
+
+  function changeStyle() {
+    // Loop through each element node in the list sequentially
+    demoElements.forEach(element => {
+      element.style.fontSize = '34px';
+      element.style.color = 'red';
+    });
+  }
+
+  function resetStyle() {
+    // Loop through each element node to clear the inline properties
+    demoElements.forEach(element => {
+      element.style.fontSize = '';
+      element.style.color = '';
+    });
+  }
+  </script>
+
+</body>
+</html>

@@ -12,3 +12,8 @@ This module demonstrates the step-by-step evolution of handling user click event
 * **Core Concept:** Managing element states by adding a secondary control action.
 * **Key Learning:** Clearing inline styles by assigning an empty string (`''`), forcing the element to efficiently inherit default CSS stylesheet rules.
 
+### [3. Targeting Multiple Elements](./index3-multiple.html)
+* **Core Concept:** Transitioning from specific target IDs to shared component classes.
+* **Key Learning:** Utilizing `document.querySelectorAll()` to gather a NodeList collection, and applying style changes sequentially via a `.forEach()` loop.
+
+
