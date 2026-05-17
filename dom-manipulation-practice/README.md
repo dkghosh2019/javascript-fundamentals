@@ -31,6 +31,10 @@ This module demonstrates the step-by-step evolution of handling user click event
 * **Core Concept:** Creating dynamic nodes from scratch within memory allocation and appending them to structural containers.
 * **Key Learning:** Mastered the precise separation between virtual allocation (`document.createElement`) and physical mounting operations (`appendChild`).
 
+### [8. Node Removal Mechanics](./index8-removal.html)
+* **Core Concept:** Safely removing element nodes out of the visible webpage tree structure.
+* **Key Learning:** Differentiated between modern child-centric deletion (`element.remove()`) and legacy parent-driven unmounting (`parentElement.removeChild()`).
+
 
 
 

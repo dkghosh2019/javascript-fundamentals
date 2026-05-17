@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .box-container {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .target-box {
+    width: 80px;
+    height: 80px;
+    background-color: #f39c12;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    border-radius: 4px;
+    transition: opacity 0.3s linear;
+  }
+</style>
+</head>
+<body>
+
+      <!-- 
+    LEARNING NOTE: Node Dismounting and Memory Cleanup
+    
+    1. Direct Element Deletion (.remove):
+       - The modern, intuitive industry standard.
+       - Executed directly on the target element node itself.
+       - Safely tears down and unmounts the node from the active DOM hierarchy.
+       
+    2. Parent-Driven Removals (.removeChild):
+       - Classic approach requiring a clear path from parent to direct child.
+       - Frequently tested in interviews to verify understanding of structural tree nesting.
+       - Returns a variable pointer to the deleted node, keeping it alive in memory 
+         for potential repositioning instead of destroying it completely.
+  -->
+
+
+  <!-- 
+    LEARNING NOTE: Node Removal Methods
+    
+    1. element.remove():
+       - Modern and straightforward API standard.
+       - Called directly on the child element you want to delete.
+       - Instantly detaches the element from the active DOM tree.
+       
+    2. parentElement.removeChild(childNode):
+       - Legacy approach, but still heavily tested in interviews.
+       - Requires you to target the direct parent element first, then pass 
+         the specific child node as an argument.
+       - Returns a reference to the removed child node, keeping it in memory 
+         if you want to re-insert it elsewhere later.
+  -->
+
+  <h2>Topic Mastery: Removing DOM Nodes Dynamically</h2>
+
+  <div class="box-container" id="parent-container">
+    <div id="box-1" class="target-box">Box 1</div>
+    <div id="box-2" class="target-box">Box 2</div>
+    <div id="box-3" class="target-box">Box 3</div>
+  </div>
+
+  <hr>
+
+  <button type="button" onclick="modernRemove()">1. Remove Box 1 Directly (.remove)</button>
+  <button type="button" onclick="legacyRemoveChild()">2. Remove Box 2 via Parent (.removeChild)</button>
+
+  <script>
+  function modernRemove() {
+    // Target the specific element we want to delete
+    const box1 = document.getElementById('box-1');
+    
+    if (box1) {
+      // Modern syntax: simply call .remove() directly on the node
+      box1.remove();
+    }
+  }
+
+  function legacyRemoveChild() {
+    // We must target BOTH the parent element and the child element
+    const container = document.getElementById('parent-container');
+    const box2 = document.getElementById('box-2');
+    
+    if (container && box2) {
+      // Legacy syntax: parent unmounts the child explicitly
+      container.removeChild(box2);
+    }
+  }
+  </script>
+
+</body>
+</html>
