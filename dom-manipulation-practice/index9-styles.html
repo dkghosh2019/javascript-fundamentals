@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* Styles declared in an external/internal stylesheet */
+  .box-component {
+    width: 150px;
+    height: 100px;
+    background-color: #3498db;
+    margin-bottom: 15px;
+    font-family: sans-serif;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 
+    LEARNING NOTE: Inline Styles vs. Computed Styles
+    
+    1. The element.style Object (Write-Only Property):
+       - Directly accesses and alters an element's INLINE styles (<div style="...">).
+       - Excellent for writing values, but highly unreliable for reading them.
+       - Cannot read styles defined inside CSS stylesheets (<style> blocks or .css files).
+       
+    2. window.getComputedStyle(element) (Read-Only API):
+       - The definitive standard for reading element visual properties.
+       - Queries the browser to retrieve the final, absolute styles being rendered 
+         on screen after factoring in all stylesheets, cascading rules, and defaults.
+       - Returns absolute computed pixel values (e.g., "150px") rather than relative tags.
+  -->
+
+  <h2>Topic Mastery: Inline Writing vs. Computed Style Reading</h2>
+
+  <div id="visual-box" class="box-component"></div>
+
+  <hr>
+
+  <button type="button" onclick="readStylesAttempt()">1. Read via element.style (Fails)</button>
+  <button type="button" onclick="readStylesCorrectly()">2. Read via getComputedStyle (Succeeds)</button>
+  <button type="button" onclick="writeInlineStyle()">3. Write Inline Style</button>
+
+  <h3>Console / Output Logs:</h3>
+  <p><strong>element.style width read value:</strong> "<span id="inline-read-log"></span>"</p>
+  <p><strong>getComputedStyle width read value:</strong> "<span id="computed-read-log"></span>"</p>
+
+  <script>
+  const visualBox = document.getElementById('visual-box');
+
+  function readStylesAttempt() {
+    // Attempting to read width from stylesheet via inline property
+    // This returns an EMPTY STRING because width is not declared inline on the tag!
+    const inlineWidth = visualBox.style.width;
+    document.getElementById('inline-read-log').textContent = inlineWidth || "[Empty String]";
+  }
+
+  function readStylesCorrectly() {
+    // Correct Approach: Query the browser for the actual rendered layout properties
+    const computedStyles = window.getComputedStyle(visualBox);
+    const exactWidth = computedStyles.width; // Returns actual pixel calculation
+    
+    document.getElementById('computed-read-log').textContent = exactWidth;
+  }
+
+  function writeInlineStyle() {
+    // Modifying values inline. This will override sheet styles due to higher specificity
+    visualBox.style.width = '250px';
+    visualBox.style.backgroundColor = '#2ecc71';
+    
+    // Now that it exists inline, even step 1's method will be able to read it
+    readStylesAttempt();
+    readStylesCorrectly();
+  }
+  </script>
+
+</body>
+</html>

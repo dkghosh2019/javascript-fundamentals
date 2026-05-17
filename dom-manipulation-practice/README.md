@@ -35,6 +35,12 @@ This module demonstrates the step-by-step evolution of handling user click event
 * **Core Concept:** Safely removing element nodes out of the visible webpage tree structure.
 * **Key Learning:** Differentiated between modern child-centric deletion (`element.remove()`) and legacy parent-driven unmounting (`parentElement.removeChild()`).
 
+### [9. Style Manipulation & Computed Rules](./index9-styles.html)
+* **Core Concept:** Dynamically modifying element visuals and reading active CSS settings.
+* **Key Learning:** Differentiated between writing inline values via `element.style` and safely extracting real-time layout configurations using `window.getComputedStyle()`.
+
+
+
 
 
 
