@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript reduce() Tutorial</title>
+</head>
+
+<body>
+
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+
+    <script>
+        /*
+                IMPORTANT:
+
+                reduce() always returns ONE final value.
+
+                That value could be:
+                - number
+                - string
+                - object
+                - array
+                - map
+                - grouped structure
+
+                reduce() is extremely powerful because the accumulator
+                can be ANY data type.
+                */
+
+        /*
+        =========================================================
+        reduce()
+        =========================================================
+
+        reduce() processes array elements one by one
+        and reduces them into a SINGLE final value.
+
+        Common uses:
+        - sum
+        - average
+        - maximum
+        - object aggregation
+        - grouping data
+
+        =========================================================
+        ORIGINAL ARRAY
+        =========================================================
+        */
+
+        const numbers = [45, 4, 9, 16, 25];
+
+
+
+        /*
+        =========================================================
+        EXAMPLE 1
+        reduce() WITHOUT explicit initial value
+        =========================================================
+
+        Syntax:
+            array.reduce(callback)
+
+        IMPORTANT:
+        If NO initial value is provided:
+
+            JavaScript automatically uses
+            the FIRST array element as the initial accumulator.
+
+        UNDER THE HOOD:
+        ---------------------------------------------------------
+
+        Initial total = 45
+        Current value = 4
+
+        Iteration 1:
+            45 + 4 = 49
+
+        Iteration 2:
+            49 + 9 = 58
+
+        Iteration 3:
+            58 + 16 = 74
+
+        Iteration 4:
+            74 + 25 = 99
+
+        Final Result:
+            99
+
+        NOTICE:
+        - First array element (45) becomes initial total
+        - Iteration starts from SECOND element
+
+        =========================================================
+        */
+
+        const sumWithoutInitialValue =
+            numbers.reduce(addNumbers);
+
+        document.getElementById("demo1").innerHTML =
+            "Without explicit initial value: " +
+            sumWithoutInitialValue;
+
+
+
+        /*
+        Callback function used by reduce()
+
+        total
+            accumulator value
+
+        value
+            current array element
+        */
+        function addNumbers(total, value) {
+            return total + value;
+        }
+
+
+
+        /*
+        =========================================================
+        EXAMPLE 2
+        reduce() WITH explicit initial value
+        =========================================================
+
+        Syntax:
+            array.reduce(callback, initialValue)
+
+        Here:
+            0 becomes the initial accumulator.
+
+        UNDER THE HOOD:
+        ---------------------------------------------------------
+
+        Initial total = 0
+
+        Iteration 1:
+            0 + 45 = 45
+
+        Iteration 2:
+            45 + 4 = 49
+
+        Iteration 3:
+            49 + 9 = 58
+
+        Iteration 4:
+            58 + 16 = 74
+
+        Iteration 5:
+            74 + 25 = 99
+
+        Final Result:
+            99
+
+        NOTICE:
+        - Iteration starts from FIRST element
+        - Safer and more predictable
+        - Recommended professional approach
+
+        =========================================================
+        */
+        /*
+               =========================================================
+               EXAMPLE 3
+               reduce() WITH explicit initial value
+               =========================================================
+       
+               Syntax:
+                   array.reduce(callback, initialValue)
+       
+               Here:
+                  100 becomes the initial accumulator.
+       
+               UNDER THE HOOD:
+               ---------------------------------------------------------
+       
+               Initial total = 100
+       
+               Iteration 1:
+                   100 + 45 = 145
+       
+               Iteration 2:
+                   145 + 4 = 149
+       
+               Iteration 3:
+                   149 + 9 = 158
+       
+               Iteration 4:
+                   158 + 16 = 174
+       
+               Iteration 5:
+                   174 + 25 = 199
+       
+               Final Result:
+                   199
+       
+               NOTICE:
+               - Iteration starts from FIRST element
+               - Safer and more predictable
+               - Recommended professional approach
+       
+               =========================================================
+               */
+        const sumWithInitialValue =
+            numbers.reduce(addNumbers, 0);
+
+        document.getElementById("demo2").innerHTML =
+            `Initial value = 0: ${sumWithInitialValue}`;
+
+
+
+
+        /*
+        =========================================================
+        reduce() can accept ANY initial accumulator value
+        =======================================================
+        */
+        const sumWithInitialValue100 =
+            numbers.reduce(addNumbers, 100);
+
+        document.getElementById("demo3").innerHTML =
+            `Initial value = 100: ${sumWithInitialValue100}`;
+
+        /*
+        ===========================================================
+        ES6 Arrow Function Version
+        ==========================================================
+        */
+
+        const es6SumWithZero =
+            numbers.reduce((total, value) => total + value, 0);
+
+        document.getElementById("demo4").innerHTML =
+            `ES6 version (initial value = 0): ${es6SumWithZero}`
+            /*
+    =========================================================
+    QUICK MENTAL MODEL
+    =========================================================
+
+    reduce():
+        combines many values into ONE value
+        That ONE value can itself be:
+- number
+- string
+- object
+- array
+
+    map():
+        transforms values
+
+    filter():
+        keeps/removes values
+
+    */
+    </script>
+
+</body>
+
+</html>

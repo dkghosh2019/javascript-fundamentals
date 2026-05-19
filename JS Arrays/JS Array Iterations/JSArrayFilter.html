@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript filter()</title>
+</head>
+
+<body>
+
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+
+    <script>
+
+        /*
+        =========================================================
+        filter()
+        =========================================================
+
+        filter() creates a NEW array containing only the
+        elements that satisfy a condition.
+
+        Condition used here:
+            value > 18
+
+        Original array:
+            [45, 4, 9, 16, 25]
+
+        Result:
+            [45, 25]
+
+        =========================================================
+        */
+
+
+
+        const numbers = [45, 4, 9, 16, 25];
+
+
+
+        /*
+        =========================================================
+        ES5 CALLBACK FUNCTION VERSION
+        =========================================================
+        */
+
+        const es5Result =
+            numbers.filter(isGreaterThan18);
+
+        document.getElementById('demo1').innerHTML =
+           JSON.stringify( es5Result);
+
+        function isGreaterThan18(value) {
+            return value > 18;
+        }
+
+
+
+        /*
+        =========================================================
+        ES6 ARROW FUNCTION VERSION
+        =========================================================
+        */
+
+        const es6Result =
+            numbers.filter(x => x > 18);
+
+        // document.getElementById('demo2').innerHTML =
+        //     es6Result.join(" ,");
+
+        document.getElementById('demo').innerHTML = JSON.stringify(es6Result);
+        
+
+
+
+        /*
+        =========================================================
+        QUICK MENTAL MODEL
+        =========================================================
+
+        map()
+            transforms values
+
+        filter()
+            keeps/removes values
+
+        =========================================================
+        */
+
+    </script>
+
+</body>
+
+</html>

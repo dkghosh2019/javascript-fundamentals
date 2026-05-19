@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript map() Tutorial</title>
+</head>
+
+<body>
+
+    <!--
+    =========================================================
+    Output placeholders
+    =========================================================
+    -->
+
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+
+
+
+    <!--
+    =========================================================
+    ES5 CALLBACK FUNCTION VERSION
+    =========================================================
+
+    map()
+    -----
+    - Creates a NEW array
+    - Transforms each element of the original array
+    - Does NOT modify the original array
+
+    Transformation used here:
+        value * 2
+
+    Original array:
+        [55, 89, 9, 16, 25]
+
+    Result:
+        [110, 178, 18, 32, 50]
+
+    =========================================================
+    -->
+
+    <script>
+
+        // Original array
+        const numbers1 = [55, 89, 9, 16, 25];
+
+
+
+        // map() calls myFunction() once for each array element
+        const doubledNumbers1 =
+            numbers1.map(multiplyByTwo);
+
+
+
+        // Display result on the webpage
+        // JSON.stringify() preserves array structure visually
+        document.getElementById('demo1').innerHTML =
+            JSON.stringify(doubledNumbers1);
+
+
+
+        /*
+        Callback function used by map()
+
+        map() passes each array element into this function.
+
+        Example:
+            55 -> 110
+            89 -> 178
+        */
+        function multiplyByTwo(value) {
+            return value * 2;
+        }
+
+    </script>
+
+
+
+    <!--
+    =========================================================
+    ES6 ARROW FUNCTION VERSION
+    =========================================================
+
+    This version performs the SAME operation as above,
+    but uses modern ES6 arrow function syntax.
+
+    Shorter and cleaner for simple transformations.
+
+    =========================================================
+    -->
+
+    <script>
+
+        // Original array
+        const numbers2 = [45, 4, 9, 16, 25];
+
+
+
+        // Arrow function version of map()
+        const doubledNumbers2 =
+            numbers2.map(x => x * 2);
+
+
+
+        // Display result
+        document.getElementById('demo2').innerHTML =
+            JSON.stringify(doubledNumbers2);
+
+    </script>
+
+
+
+    <!--
+    =========================================================
+    QUICK MENTAL MODEL
+    =========================================================
+
+    map()
+        transforms array values
+
+    filter()
+        keeps/removes values
+
+    flatMap()
+        map() + flatten()
+
+    =========================================================
+    -->
+
+</body>
+
+</html>

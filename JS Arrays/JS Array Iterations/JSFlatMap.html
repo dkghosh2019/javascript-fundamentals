@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript map() vs flatMap()</title>
+</head>
+
+<body>
+
+    <script>
+
+        /*
+        =========================================================
+        map() vs flatMap()
+        =========================================================
+
+        map()
+        -----
+        - Transforms each element of an array
+        - Returns ONE new value for each element
+        - If you return arrays, you get a NESTED array
+
+        flatMap()
+        ----------
+        - First performs map()
+        - Then automatically flattens ONE level deep
+
+        =========================================================
+        INPUT ARRAY
+        =========================================================
+        */
+
+        const numbers = [1, 2, 3];
+
+
+
+        /*
+        =========================================================
+        EXAMPLE 1 : map()
+        =========================================================
+
+        Each element returns:
+            [x, x * 2]
+
+        So map() creates:
+            [
+              [1, 2],
+              [2, 4],
+              [3, 6]
+            ]
+
+        Notice:
+        - Array INSIDE array
+        - Nested structure remains intact
+        */
+
+        const mapResult = numbers.map(x => [x, x * 2]);
+
+        console.log("map() result:");
+        console.log(mapResult);
+
+
+
+        /*
+        =========================================================
+        EXAMPLE 2 : flatMap()
+        =========================================================
+
+        flatMap() does TWO things:
+
+        1. map()
+        2. flatten()
+
+        Intermediate mapped result:
+            [
+              [1, 2],
+              [2, 4],
+              [3, 6]
+            ]
+
+        After flattening:
+            [1, 2, 2, 4, 3, 6]
+
+        Notice:
+        - No nested arrays
+        - Flattened into one single array
+        */
+
+        const flatMapResult =
+            numbers.flatMap(x => [x, x * 2]);
+
+        console.log("flatMap() result:");
+        console.log(flatMapResult);
+
+
+
+        /*
+        =========================================================
+        QUICK MENTAL MODEL
+        =========================================================
+
+        map():
+            1 item  ->  1 item
+
+        flatMap():
+            1 item  ->  multiple items
+            then flatten the result
+
+        =========================================================
+        */
+
+    </script>
+
+</body>
+
+</html>
